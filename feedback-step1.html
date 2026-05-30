@@ -20,11 +20,6 @@
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-    100% { transform: scale(1); }
-  }
   .title {
     font-size: 15px;
     font-weight: bold;
@@ -35,27 +30,8 @@
     font-size: 13px;
     color: #666;
     line-height: 1.5;
-    margin-bottom: 16px;
-  }
-  .buttons {
-    display: flex;
-    gap: 8px;
     margin-bottom: 12px;
   }
-  .btn {
-    flex: 1;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #e0e0e0;
-    background: #fafafa;
-    text-align: center;
-    animation: pulse 2s ease infinite;
-  }
-  .btn:last-child {
-    animation-delay: 0.3s;
-  }
-  .btn-emoji { font-size: 24px; display: block; }
-  .btn-label { font-size: 12px; color: #555; margin-top: 4px; font-weight: bold; }
   .hint {
     font-size: 11px;
     color: #aaa;
@@ -66,17 +42,7 @@
 <body>
 <div class="card">
   <p class="title">A fost util Djingo azi? 💬</p>
-  <p class="subtitle">Părerea ta ne ajută să devenim mai buni pentru tine.</p>
-  <div class="buttons">
-    <div class="btn">
-      <span class="btn-emoji">👍</span>
-      <span class="btn-label">Da</span>
-    </div>
-    <div class="btn">
-      <span class="btn-emoji">👎</span>
-      <span class="btn-label">Nu</span>
-    </div>
-  </div>
+  <p class="subtitle">Părerea ta ne ajută să devenim mai buni pentru tine. Alege una din opțiunile de mai jos.</p>
   <p class="hint">⏱ Durează doar 15 secunde</p>
 </div>
 </body>
