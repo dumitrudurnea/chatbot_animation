@@ -4,77 +4,57 @@
 <meta charset="UTF-8">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { 
-    font-family: Arial, sans-serif; 
-    background: transparent; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    min-height: 100vh;
+  body { font-family: Arial, sans-serif; background: white; padding: 0; margin: 0; }
+  @keyframes popIn {
+    0% { opacity: 0; transform: scale(0.3) rotate(-15deg); }
+    50% { transform: scale(1.2) rotate(4deg); }
+    75% { transform: scale(0.95) rotate(-2deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0deg); }
+  }
+  @keyframes drawCheck {
+    from { stroke-dashoffset: 50; }
+    to { stroke-dashoffset: 0; }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
   }
   .card {
+    background: white;
+    padding: 20px 16px;
     text-align: center;
-    padding: 24px 20px;
-    max-width: 320px;
-    width: 100%;
   }
   .circle {
-    width: 72px;
-    height: 72px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background: #FF6600;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 16px;
-    opacity: 0;
-    transform: scale(0.3) rotate(-15deg);
-    position: relative;
-  }
-  .ripple {
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background: #FF6600;
-    opacity: 0;
+    margin: 0 auto 14px;
+    animation: popIn 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
   .title {
-    font-size: 17px;
+    font-size: 16px;
     font-weight: bold;
     color: #111;
-    margin-bottom: 8px;
-    opacity: 0;
-    transform: translateY(14px);
+    margin-bottom: 6px;
+    animation: fadeUp 0.6s ease;
   }
   .subtitle {
     font-size: 13px;
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 16px;
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  .badge {
-    display: inline-block;
-    background: #FFF0E6;
-    border-radius: 20px;
-    padding: 6px 16px;
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  .badge span {
-    font-size: 12px;
-    color: #FF6600;
-    font-weight: bold;
+    color: #888;
+    line-height: 1.5;
+    animation: fadeUp 0.6s ease;
   }
 </style>
 </head>
 <body>
 <div class="card">
-  <div class="circle" id="circle">
-    <div class="ripple" id="ripple"></div>
-    <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-      <polyline id="check"
+  <div class="circle">
+    <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
+      <polyline
         points="6,18 14,27 30,10"
         stroke="white"
         stroke-width="3.5"
@@ -83,62 +63,12 @@
         fill="none"
         stroke-dasharray="50"
         stroke-dashoffset="50"
+        style="animation: drawCheck 0.8s ease 0.8s forwards;"
       />
     </svg>
   </div>
-  <p class="title" id="title">Mulțumim! 🧡</p>
-  <p class="subtitle" id="subtitle">Feedback-ul tău ne ajută să îmbunătățim experiența pentru toți clienții Orange.</p>
-  <div class="badge" id="badge">
-    <span>Djingo se îmbunătățește cu fiecare feedback ✨</span>
-  </div>
+  <p class="title">Mulțumim! 🧡</p>
+  <p class="subtitle">Feedback-ul tău contează pentru noi.</p>
 </div>
-
-<script>
-function animate(el, props, duration, delay) {
-  setTimeout(() => {
-    el.style.transition = `all ${duration}ms cubic-bezier(0.34, 1.56, 0.64, 1)`;
-    Object.keys(props).forEach(k => el.style[k] = props[k]);
-  }, delay);
-}
-
-function animateEase(el, props, duration, delay) {
-  setTimeout(() => {
-    el.style.transition = `all ${duration}ms ease`;
-    Object.keys(props).forEach(k => el.style[k] = props[k]);
-  }, delay);
-}
-
-const circle = document.getElementById('circle');
-const check = document.getElementById('check');
-const ripple = document.getElementById('ripple');
-const title = document.getElementById('title');
-const subtitle = document.getElementById('subtitle');
-const badge = document.getElementById('badge');
-
-// Cerc apare cu bounce
-animate(circle, { opacity: '1', transform: 'scale(1) rotate(0deg)' }, 1000, 300);
-
-// Checkmark se deseneaza
-setTimeout(() => {
-  check.style.transition = 'stroke-dashoffset 0.7s ease';
-  check.style.strokeDashoffset = '0';
-}, 1100);
-
-// Ripple
-setTimeout(() => {
-  ripple.style.opacity = '0.5';
-  ripple.style.transform = 'scale(1)';
-  ripple.style.transition = 'all 0.8s ease';
-  setTimeout(() => {
-    ripple.style.opacity = '0';
-    ripple.style.transform = 'scale(2.2)';
-  }, 50);
-}, 1500);
-
-// Texte in cascada
-animateEase(title, { opacity: '1', transform: 'translateY(0)' }, 500, 1800);
-animateEase(subtitle, { opacity: '1', transform: 'translateY(0)' }, 500, 2100);
-animateEase(badge, { opacity: '1', transform: 'translateY(0)' }, 500, 2400);
-</script>
 </body>
 </html>
