@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; background: white; padding: 0; margin: 0; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+  @keyframes blink {
+    0%, 85%, 100% { transform: scaleY(1); }
+    90%, 95% { transform: scaleY(0.08); }
+  }
+  .card {
+    background: white;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    animation: fadeUp 0.6s ease;
+  }
+  .robot-wrap { flex-shrink: 0; animation: float 3s ease-in-out infinite; }
+  .text-wrap { flex: 1; }
+  .title { font-size: 14px; font-weight: bold; color: #111; margin-bottom: 4px; }
+  .subtitle { font-size: 12px; color: #666; line-height: 1.5; }
+  .eyes { animation: blink 4s ease-in-out infinite; transform-origin: 340px 200px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="robot-wrap">
+    <svg width="64" height="72" viewBox="160 85 360 365" xmlns="http://www.w3.org/2000/svg">
+      <rect x="300" y="390" width="32" height="38" rx="10" fill="#FF6600"/>
+      <rect x="348" y="390" width="32" height="38" rx="10" fill="#FF6600"/>
+      <rect x="304" y="410" width="24" height="20" rx="6" fill="#E55A00"/>
+      <rect x="352" y="410" width="24" height="20" rx="6" fill="#E55A00"/>
+      <rect x="240" y="290" width="200" height="110" rx="20" fill="#FF6600"/>
+      <rect x="252" y="322" width="50" height="16" rx="8" fill="#E55A00"/>
+      <rect x="252" y="344" width="36" height="16" rx="8" fill="#E55A00"/>
+      <rect x="252" y="366" width="44" height="16" rx="8" fill="#E55A00"/>
+      <circle cx="368" cy="345" r="20" fill="white" opacity="0.15"/>
+      <circle cx="368" cy="345" r="10" fill="white" opacity="0.3"/>
+      <circle cx="368" cy="345" r="4" fill="white" opacity="0.8"/>
+      <rect x="188" y="248" width="52" height="20" rx="10" fill="#FF6600"/>
+      <circle cx="182" cy="258" r="16" fill="#FF6600"/>
+      <circle cx="182" cy="258" r="10" fill="#E55A00"/>
+      <rect x="440" y="248" width="52" height="20" rx="10" fill="#FF6600"/>
+      <circle cx="498" cy="258" r="16" fill="#FF6600"/>
+      <circle cx="498" cy="258" r="10" fill="#E55A00"/>
+      <rect x="240" y="130" width="200" height="168" rx="32" fill="#FF6600"/>
+      <rect x="260" y="150" width="160" height="110" rx="22" fill="#FFFFFF"/>
+      <g class="eyes">
+        <rect x="282" y="173" width="44" height="36" rx="12" fill="#FF6600"/>
+        <rect x="354" y="173" width="44" height="36" rx="12" fill="#FF6600"/>
+        <rect x="290" y="179" width="28" height="8" rx="4" fill="white" opacity="0.7"/>
+        <rect x="362" y="179" width="28" height="8" rx="4" fill="white" opacity="0.7"/>
+      </g>
+      <!-- Gura trista -->
+      <path d="M288 238 Q340 220 392 238" stroke="#FF6600" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <line x1="340" y1="96" x2="340" y2="130" stroke="#FF6600" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="340" cy="88" r="10" fill="#FF6600">
+        <animate attributeName="r" values="10;13;10" dur="1.8s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0.5;1" dur="1.8s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="340" cy="88" r="5" fill="white" opacity="0.8"/>
+    </svg>
+  </div>
+  <div class="text-wrap">
+    <p class="title">😕 Ne pare rău. Ce nu a mers?</p>
+    <p class="subtitle">Ajută-ne să îmbunătățim experiența ta.</p>
+  </div>
+</div>
+</body>
+</html>
