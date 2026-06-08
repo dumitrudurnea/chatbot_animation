@@ -7,14 +7,7 @@
   html, body { width: 100%; overflow: hidden; background: transparent; font-family: Arial, sans-serif; }
   
   .wrap {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
     padding: 4px 0;
-    flex-wrap: wrap;
-  }
-  
-  .text {
     font-size: 14px;
     color: #333;
     line-height: 1.5;
@@ -24,8 +17,7 @@
     position: relative;
     display: inline-block;
     cursor: help;
-    font-size: 18px;
-    flex-shrink: 0;
+    font-size: 16px;
   }
 
   .tb {
@@ -37,22 +29,19 @@
     border-radius: 6px;
     position: absolute;
     top: 130%;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
     white-space: nowrap;
     z-index: 9999;
     line-height: 1.8;
     pointer-events: none;
-}
+  }
 
   .tt:hover .tb { visibility: visible; }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <span class="text">Salut, momentan consultanții sunt în afara programului de lucru</span>
-  <span class="tt">🕐<span class="tb">Luni - Vineri: 09:00 - 20:00<br>Sâmbătă - Duminică: 09:00 - 18:00</span></span>
-  <span class="text">. Între timp te rog să alegi una din opțiunile de mai jos pentru a te ghida.</span>
+  Salut, momentan consultanții sunt în afara programului de lucru <span class="tt">🕐<span class="tb">Luni - Vineri: 09:00 - 20:00<br>Sâmbătă - Duminică: 09:00 - 18:00</span></span>. Între timp te rog să alegi una din opțiunile de mai jos pentru a te ghida.
 </div>
 </body>
 </html>
